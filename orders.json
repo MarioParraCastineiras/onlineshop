@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "client": "Mario",
+        "items": [
+            {
+                "product_id": 1,
+                "quantity": 75
+            }
+        ]
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Lapiz",
+        "price": 0.5,
+        "category": "papeleria"
+    },
+    {
+        "id": 2,
+        "name": "Boligrafo",
+        "price": 1.5,
+        "category": "papeleria"
+    },
+    {
+        "id": 3,
+        "name": "Monitor 27 Pulgadas",
+        "price": 150,
+        "category": "informatica"
+    },
+    {
+        "id": 3,
+        "name": "Ratón inalámbrico",
+        "price": 20,
+        "category": "informatica"
+    }
+]
