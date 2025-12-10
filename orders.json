@@ -1,12 +1,12 @@
 [
     {
-        "id": 1,
-        "client": "Mario",
+        "client": "Mario Parra",
         "items": [
             {
                 "product_id": 1,
-                "quantity": 75
+                "quantity": 50
             }
-        ]
+        ],
+        "id": 1
     }
 ]
