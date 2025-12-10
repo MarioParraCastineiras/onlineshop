@@ -25,11 +25,6 @@ async def get_products(): # Devuelve la lista de productos desde products.json
 
         return JSONResponse(content=products_list)
 
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="Products file not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 
 @app.get("/products/{id}") # Devuelve un producto por su ID usando el árbol binario para buscar
 async def get_product_by_id(id: int):
@@ -56,11 +51,6 @@ async def get_product_by_id(id: int):
             if product["id"] == id:
                 return JSONResponse(content=product)
 
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="Products file not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 @app.post("/products") # Agrega un nuevo producto a products.json y al árbol binario
 async def add_product(request: Request):
     global products_list, products_tree
@@ -74,11 +64,6 @@ async def add_product(request: Request):
         else:
             products_tree.insertar(new_product["id"])
         return JSONResponse(content={"message": "Product added successfully", "product": new_product})
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="Products file not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 
 
 @app.get("/orders") # Devuelve la lista de pedidos desde orders.json usando lista enlazada
@@ -102,11 +87,6 @@ async def get_orders():
         # Usar traverse_linked_list para obtener los pedidos
         orders = traverse_linked_list(orders_head)
         return JSONResponse(content=orders)
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="commands.json file not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 
 
 @app.get("/orders/{order_id}") # Devuelve un pedido por su ID usando lista enlazada para buscar
@@ -140,8 +120,7 @@ async def get_order_by_id(order_id: int):
                 return JSONResponse(content=current.data)
             current = current.next
         raise HTTPException(status_code=404, detail="Order not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.post("/orders")
 async def add_order(request: Request):
@@ -174,8 +153,7 @@ async def add_order(request: Request):
         with open('orders.json', 'w', encoding='utf-8') as f:
             json.dump(all_orders, f, indent=4, ensure_ascii=False)
         return JSONResponse(content={"message": "Order added successfully", "order": new_order})
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.delete("/orders/{order_id}")
 async def delete_order(order_id: int):
@@ -212,8 +190,7 @@ async def delete_order(order_id: int):
         with open('orders.json', 'w', encoding='utf-8') as f:
             json.dump(all_orders, f, indent=4, ensure_ascii=False)
         return JSONResponse(content={"message": f"Order {order_id} deleted successfully"})
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.put("/orders/{order_id}")
 async def update_order(order_id: int, request: Request):
@@ -260,8 +237,7 @@ async def update_order(order_id: int, request: Request):
             "message": f"Order {order_id} updated successfully",
             "order": updated_data
         })
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+
 
 
 
