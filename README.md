@@ -5,4 +5,4 @@ Archivos necesarios para la correcta prueba del código:
 3. orders.json
 4. products.json
 
-Para el testeo correcto de la API se recomienda utilizar POSTMAN como herramienta para generar las peticiones. Se adjunta un PDF llamado usoEndpointsPostman.pdf donde se detalla la estructura requerida en funcion de la petición a realizar. 
+Para el testeo correcto de la API se recomienda utilizar POSTMAN como herramienta para generar las peticiones. Se adjunta un PDF llamado Sistema de gestión de pedidos para una tienda en línea.pdf donde se detalla la estructura requerida en funcion de la petición a realizar. 
